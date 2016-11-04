@@ -2,8 +2,12 @@ MAKE = make		#change this line if you are using a different GNU make software
 
 dirFASTAtoRF = ./src/FASTAtoRF
 dirRCADER = ./src/RCADER
+dirExamples= ./examples
 
-all: MK_dir CC_FASTAtoRF CC_RCADER RM_objectFiles
+all: Extract MK_dir CC_FASTAtoRF CC_RCADER RM_objectFiles
+
+Extract:
+	gunzip $(dirExamples)/*/*.gz
 
 MK_dir:
 	mkdir -p ./bin
