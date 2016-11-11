@@ -7,6 +7,7 @@ RCADER uses ChIP-seq data and the C2H2-ZF recognition code to identify motifs th
 - Unix-compatible OS
 - [R](http://www.r-project.org/) version 3.0.1 or later
 - R [randomForest](https://cran.r-project.org/web/packages/randomForest/index.html) library
+- [GNU Scientific Library](https://www.gnu.org/software/gsl/) version 1.15 or later
 
 ### Installation
 
