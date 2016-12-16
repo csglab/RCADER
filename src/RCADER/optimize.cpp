@@ -92,7 +92,7 @@ void _update_PWM(
 		{
 			n = _n_index( seqs[ i ] ->seq[ seqs[ i ] ->max_pos + x ] );
 			
-			if( n > 0 ) // this base is known
+			if( n >= 0 ) // this base is known
 			{
 				if( seqs[ i ] ->max_dir == FORWARD_ONLY )
 				{
