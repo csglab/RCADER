@@ -89,7 +89,7 @@ bool write_scores(
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////
-bool write_PFMs(
+bool write_PWMs(
 	ofstream &ofs,
 	s_motif *motifs[],
 	int num_motifs,
@@ -122,7 +122,7 @@ bool write_PFMs(
 				{
 					ofs << j+1;
 					for( n = 0; n < NUM_N_LETTERS; n ++ )
-						ofs << char(9) << pow( 10, motifs[ i ] ->PWM[ n ][ j ] ) / NUM_N_LETTERS;
+						ofs << char(9) << motifs[ i ] ->PWM[ n ][ j ];
 					ofs << endl;
 				}
 
@@ -149,7 +149,7 @@ bool write_PFMs(
 			{
 				ofs << j+1;
 				for( n = 0; n < NUM_N_LETTERS; n ++ )
-					ofs << char(9) << pow( 10, motifs[ i ] ->opt_PWM[ n ][ j ] ) / NUM_N_LETTERS;
+					ofs << char(9) << motifs[ i ] ->opt_PWM[ n ][ j ];
 				ofs << endl;
 			}
 	
@@ -157,46 +157,6 @@ bool write_PFMs(
 		}
 	
 	return true;
-}
-
-
-///////////////////////////////////////////////////////////////////////////////////////////
-void write_opt_MEME(
-	ofstream &ofs,
-	s_motif *motif,
-	const char *experiment_name )
-{
-	if( !motif ->PWM_optimized )
-		return; // if this motif is not optimized, do not write it
-	
-	// write the PWM for this motif in a format that is recognized by the MEME suite
-	
-	ofs << "MEME version 4" << endl
-		<< endl
-		<< "ALPHABET= ACGT" << endl
-		<< endl
-		<< "strands: + -" << endl
-		<< endl;
-	
-	ofs << "MOTIF " << motif ->name << "|opt" << experiment_name << endl
-		<< "letter-probability matrix: alength= " << NUM_N_LETTERS
-			<< " w= " << motif ->PWM_width
-			<< " nsites= 10000" << endl;
-
-	int i;
-	for( i = 0; i < motif ->PWM_width; i ++ )
-	{
-		int n;
-		for( n = 0; n < NUM_N_LETTERS; n ++ )
-		{
-			if( n > 0 )
-				ofs << char(9);
-			ofs << pow( 10, motif ->opt_PWM[ n ][ i ] ) / NUM_N_LETTERS;
-		}
-		ofs << endl;
-	}
-			
-	ofs << endl;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////
