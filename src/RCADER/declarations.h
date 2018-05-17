@@ -57,8 +57,7 @@ void correct_for_dinuc( s_seq *seqs[], int num_seqs );
 void optimize_PWMs( s_seq *seqs[], int num_seqs, s_motif *motifs[], int num_motifs );
 
 bool write_scores( ofstream &ofs, s_seq *seqs[], int num_seqs, s_motif *motifs[], int num_motifs );
-bool write_PFMs( ofstream &ofs, s_motif *motifs[], int num_motifs, const char *experiment_name, bool opt_only );
-void write_opt_MEME( ofstream &ofs, s_motif *motif, const char *experiment_name );
+bool write_PWMs( ofstream &ofs, s_motif *motifs[], int num_motifs, const char *experiment_name, bool opt_only );
 void write_report( ofstream &ofs, s_motif *motifs[], int num_motifs, const char *experiment_name );
 void write_graphics( ofstream &ofs, s_motif *motifs[], int num_motifs );
 

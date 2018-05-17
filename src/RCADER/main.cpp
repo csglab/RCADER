@@ -73,8 +73,8 @@ int main( int argc, char* argv[] )
 
 	//******************* open output
 
-	ofstream ofs_PFM;
-	if( !open_output( ofs_PFM, __output_file, ".PFM.txt" ) )
+	ofstream ofs_PWM;
+	if( !open_output( ofs_PWM, __output_file, ".PWM.txt" ) )
 		return 1;
 
 	//ofstream ofs_opt_PFM;
@@ -155,7 +155,7 @@ int main( int argc, char* argv[] )
 		return 1;
 
 	// write all optimized PFMs
-	if( !write_PFMs( ofs_PFM, motifs, num_motifs, __experiment, true ) )
+	if( !write_PWMs( ofs_PWM, motifs, num_motifs, __experiment, true ) )
 		return 1;
 
 	// write the optimized PFM for the best-scoring motif
